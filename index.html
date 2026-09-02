@@ -1,0 +1,1604 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Para ti 🌷</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,
+body{
+    width:100%;
+    height:100%;
+}
+
+body{
+    min-height:100vh;
+    overflow:hidden;
+
+    font-family:Arial, Helvetica, sans-serif;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    color:white;
+
+    background:
+        radial-gradient(
+            circle at 50% 72%,
+            rgba(255,72,190,.16),
+            transparent 29%
+        ),
+
+        radial-gradient(
+            circle at 16% 20%,
+            rgba(70,100,255,.18),
+            transparent 35%
+        ),
+
+        radial-gradient(
+            circle at 84% 30%,
+            rgba(111,77,255,.09),
+            transparent 28%
+        ),
+
+        linear-gradient(
+            180deg,
+            #050817 0%,
+            #0c1026 44%,
+            #17132d 70%,
+            #321238 100%
+        );
+}
+
+
+/* =====================================================
+   ESTRELLAS
+===================================================== */
+
+.stars{
+    position:fixed;
+    inset:0;
+
+    z-index:1;
+
+    pointer-events:none;
+}
+
+.star{
+    position:absolute;
+
+    width:2px;
+    height:2px;
+
+    border-radius:50%;
+
+    background:#fff;
+
+    box-shadow:
+        0 0 5px rgba(255,255,255,.95),
+        0 0 12px rgba(197,210,255,.55);
+
+    animation:
+        twinkle 4s ease-in-out infinite;
+}
+
+.star.medium{
+    width:3px;
+    height:3px;
+}
+
+.star.big{
+    width:4px;
+    height:4px;
+
+    box-shadow:
+        0 0 7px white,
+        0 0 15px rgba(188,199,255,.7),
+        0 0 27px rgba(138,111,255,.35);
+}
+
+@keyframes twinkle{
+
+    0%,
+    100%{
+        opacity:.22;
+        transform:scale(.7);
+    }
+
+    50%{
+        opacity:1;
+        transform:scale(1.4);
+    }
+}
+
+
+/* =====================================================
+   ESTRELLAS EN FORMA DE DESTELLO
+===================================================== */
+
+.sparkle{
+    position:absolute;
+
+    width:12px;
+    height:12px;
+
+    opacity:.7;
+
+    animation:
+        sparklePulse 5s ease-in-out infinite;
+}
+
+.sparkle::before,
+.sparkle::after{
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    border-radius:100%;
+
+    background:white;
+
+    box-shadow:
+        0 0 8px rgba(255,255,255,.7);
+}
+
+.sparkle::before{
+    width:2px;
+    height:12px;
+}
+
+.sparkle::after{
+    width:12px;
+    height:2px;
+}
+
+@keyframes sparklePulse{
+
+    0%,
+    100%{
+        opacity:.25;
+        transform:scale(.7);
+    }
+
+    50%{
+        opacity:.9;
+        transform:scale(1.15);
+    }
+}
+
+
+/* =====================================================
+   SOL SYNTHWAVE
+===================================================== */
+
+.retro-sun{
+    position:fixed;
+
+    left:50%;
+    bottom:90px;
+
+    width:430px;
+    height:430px;
+
+    transform:
+        translateX(-50%);
+
+    border-radius:50%;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,174,105,.38) 0%,
+            rgba(255,88,177,.28) 48%,
+            rgba(173,65,217,.10) 78%,
+            transparent 100%
+        );
+
+    box-shadow:
+        0 0 50px rgba(255,86,186,.12),
+        0 0 110px rgba(226,68,220,.10);
+
+    filter:blur(.3px);
+
+    opacity:.58;
+
+    z-index:0;
+}
+
+
+/* líneas horizontales del sol */
+
+.retro-sun::after{
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    border-radius:50%;
+
+    background:
+        repeating-linear-gradient(
+            180deg,
+            transparent 0px,
+            transparent 26px,
+            rgba(5,8,23,.30) 27px,
+            rgba(5,8,23,.30) 31px
+        );
+
+    mask-image:
+        linear-gradient(
+            180deg,
+            transparent 0%,
+            rgba(0,0,0,.8) 33%,
+            black 100%
+        );
+}
+
+
+/* =====================================================
+   HORIZONTE NEÓN
+===================================================== */
+
+.horizon-light{
+    position:fixed;
+
+    left:0;
+    right:0;
+
+    bottom:135px;
+
+    height:2px;
+
+    opacity:.32;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(238,93,255,.9),
+            rgba(255,128,209,1),
+            rgba(238,93,255,.9),
+            transparent
+        );
+
+    box-shadow:
+        0 0 14px rgba(255,73,210,.55),
+        0 0 35px rgba(149,74,255,.22);
+
+    z-index:1;
+}
+
+
+/* =====================================================
+   GRID OCHENTERA
+===================================================== */
+
+.retro-grid{
+    position:fixed;
+
+    left:-25%;
+    right:-25%;
+
+    bottom:-170px;
+
+    height:330px;
+
+    z-index:0;
+
+    opacity:.13;
+
+    transform:
+        perspective(450px)
+        rotateX(62deg);
+
+    transform-origin:center top;
+
+    background-image:
+
+        linear-gradient(
+            rgba(229,91,255,.55) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(103,112,255,.55) 1px,
+            transparent 1px
+        );
+
+    background-size:
+        42px 32px,
+        42px 32px;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            rgba(0,0,0,.85),
+            transparent 78%
+        );
+}
+
+
+/* =====================================================
+   NIEBLA NEÓN INFERIOR
+===================================================== */
+
+.neon-haze{
+    position:fixed;
+
+    left:0;
+    right:0;
+    bottom:0;
+
+    height:250px;
+
+    z-index:0;
+
+    pointer-events:none;
+
+    background:
+        radial-gradient(
+            ellipse at 50% 100%,
+            rgba(255,52,190,.15),
+            transparent 58%
+        ),
+
+        linear-gradient(
+            transparent,
+            rgba(171,41,161,.035),
+            rgba(234,65,190,.085)
+        );
+}
+
+
+/* =====================================================
+   ESCENA
+===================================================== */
+
+.scene{
+    position:relative;
+
+    width:100%;
+    min-height:100vh;
+
+    z-index:5;
+
+    display:flex;
+    flex-direction:column;
+
+    align-items:center;
+    justify-content:center;
+}
+
+
+/* =====================================================
+   GLOW DETRÁS DEL RAMO
+===================================================== */
+
+.bouquet-glow{
+    position:absolute;
+
+    width:520px;
+    height:520px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,235,124,.13) 0%,
+            rgba(255,93,192,.10) 38%,
+            rgba(130,87,255,.05) 58%,
+            transparent 73%
+        );
+
+    filter:blur(25px);
+
+    animation:
+        glowBreath 6s ease-in-out infinite;
+}
+
+@keyframes glowBreath{
+
+    0%,
+    100%{
+        opacity:.65;
+        transform:scale(.94);
+    }
+
+    50%{
+        opacity:1;
+        transform:scale(1.07);
+    }
+}
+
+
+/* =====================================================
+   RAMO
+===================================================== */
+
+.bouquet-wrapper{
+    position:relative;
+
+    width:min(510px,95vw);
+    height:620px;
+
+    opacity:0;
+
+    transform-origin:
+        50% 96%;
+
+    animation:
+
+        bouquetEnter
+        2.2s
+        cubic-bezier(.16,.82,.3,1)
+        forwards,
+
+        bouquetBreeze
+        7s
+        ease-in-out
+        2.2s
+        infinite;
+}
+
+@keyframes bouquetEnter{
+
+    0%{
+        opacity:0;
+
+        transform:
+            translateY(180px)
+            scale(.86);
+    }
+
+    60%{
+        opacity:1;
+    }
+
+    100%{
+        opacity:1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+@keyframes bouquetBreeze{
+
+    0%,
+    100%{
+        transform:rotate(-.65deg);
+    }
+
+    50%{
+        transform:rotate(.8deg);
+    }
+}
+
+.bouquet-svg{
+    width:100%;
+    height:100%;
+
+    overflow:visible;
+
+    filter:
+        drop-shadow(
+            0 21px 23px
+            rgba(0,0,0,.28)
+        );
+}
+
+
+/* =====================================================
+   FLORES
+===================================================== */
+
+.flower{
+    transform-box:fill-box;
+
+    transform-origin:
+        50% 100%;
+}
+
+.wind-a{
+    animation:
+        windA 5.1s ease-in-out infinite;
+}
+
+.wind-b{
+    animation:
+        windB 5.7s ease-in-out infinite;
+}
+
+.wind-c{
+    animation:
+        windC 4.8s ease-in-out infinite;
+}
+
+@keyframes windA{
+
+    0%,
+    100%{
+        transform:rotate(-1.5deg);
+    }
+
+    50%{
+        transform:
+            rotate(2deg)
+            translateY(-2px);
+    }
+}
+
+@keyframes windB{
+
+    0%,
+    100%{
+        transform:rotate(1deg);
+    }
+
+    50%{
+        transform:rotate(-1.8deg);
+    }
+}
+
+@keyframes windC{
+
+    0%,
+    100%{
+        transform:rotate(-.4deg);
+    }
+
+    50%{
+        transform:rotate(2.3deg);
+    }
+}
+
+
+/* =====================================================
+   HOJAS
+===================================================== */
+
+.leaf{
+    transform-box:fill-box;
+
+    transform-origin:center bottom;
+
+    animation:
+        leafWind 5.5s ease-in-out infinite;
+}
+
+@keyframes leafWind{
+
+    0%,
+    100%{
+        transform:rotate(-1deg);
+    }
+
+    50%{
+        transform:rotate(1.7deg);
+    }
+}
+
+
+/* =====================================================
+   PETALOS FLOTANDO
+===================================================== */
+
+.floating-petal{
+    position:fixed;
+
+    z-index:4;
+
+    width:12px;
+    height:19px;
+
+    border-radius:
+        70% 20% 70% 20%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff17b,
+            #eab323
+        );
+
+    opacity:0;
+
+    filter:
+        drop-shadow(
+            0 0 4px
+            rgba(255,225,93,.32)
+        );
+
+    animation:
+        petalFall 9s linear infinite;
+}
+
+.petal-1{
+    left:35%;
+    top:19%;
+
+    animation-delay:1s;
+}
+
+.petal-2{
+    left:67%;
+    top:28%;
+
+    animation-delay:5s;
+}
+
+.petal-3{
+    left:59%;
+    top:14%;
+
+    animation-delay:8s;
+}
+
+@keyframes petalFall{
+
+    0%{
+        opacity:0;
+
+        transform:
+            translate(0,-20px)
+            rotate(0);
+    }
+
+    10%{
+        opacity:.7;
+    }
+
+    65%{
+        opacity:.55;
+    }
+
+    100%{
+        opacity:0;
+
+        transform:
+            translate(55px,290px)
+            rotate(270deg);
+    }
+}
+
+
+/* =====================================================
+   MENSAJE
+===================================================== */
+
+.message{
+    position:relative;
+
+    z-index:10;
+
+    margin-top:-48px;
+
+    text-align:center;
+
+    opacity:0;
+
+    animation:
+        messageAppear
+        1.8s
+        ease
+        1.8s
+        forwards;
+}
+
+.message p{
+    font-size:17px;
+
+    font-weight:300;
+
+    letter-spacing:7px;
+
+    color:#fff9e8;
+
+    text-shadow:
+        0 0 8px rgba(255,255,255,.35),
+        0 0 25px rgba(255,215,110,.30);
+}
+
+.message span{
+    display:block;
+
+    margin-top:14px;
+
+    font-size:21px;
+
+    opacity:.84;
+}
+
+@keyframes messageAppear{
+
+    from{
+        opacity:0;
+
+        transform:
+            translateY(15px);
+    }
+
+    to{
+        opacity:1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* =====================================================
+   CELULAR
+===================================================== */
+
+@media(max-width:600px){
+
+    .bouquet-wrapper{
+        width:430px;
+        max-width:97vw;
+
+        height:540px;
+    }
+
+    .bouquet-glow{
+        width:360px;
+        height:360px;
+    }
+
+    .retro-sun{
+        width:330px;
+        height:330px;
+
+        bottom:115px;
+    }
+
+    .message{
+        margin-top:-28px;
+    }
+
+    .message p{
+        font-size:14px;
+        letter-spacing:5px;
+    }
+
+    .retro-grid{
+        opacity:.09;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     FONDO
+===================================================== -->
+
+<div class="retro-sun"></div>
+
+<div class="horizon-light"></div>
+
+<div class="retro-grid"></div>
+
+<div class="neon-haze"></div>
+
+
+
+<!-- =====================================================
+     ESTRELLAS
+===================================================== -->
+
+<div class="stars">
+
+<span class="star medium" style="left:5%;top:12%;animation-delay:.2s"></span>
+<span class="star" style="left:9%;top:31%;animation-delay:1.2s"></span>
+<span class="star" style="left:13%;top:19%;animation-delay:2.5s"></span>
+
+<span class="star big" style="left:18%;top:7%;animation-delay:.8s"></span>
+<span class="star" style="left:21%;top:42%;animation-delay:3s"></span>
+<span class="star medium" style="left:25%;top:21%;animation-delay:1.8s"></span>
+
+<span class="star" style="left:30%;top:10%;animation-delay:.5s"></span>
+<span class="star" style="left:34%;top:30%;animation-delay:2.3s"></span>
+
+<span class="star medium" style="left:39%;top:6%;animation-delay:1.4s"></span>
+<span class="star" style="left:42%;top:24%;animation-delay:3.3s"></span>
+
+<span class="star big" style="left:48%;top:8%;animation-delay:.4s"></span>
+
+<span class="star" style="left:53%;top:18%;animation-delay:1.7s"></span>
+
+<span class="star medium" style="left:58%;top:6%;animation-delay:2.7s"></span>
+<span class="star" style="left:61%;top:31%;animation-delay:.9s"></span>
+
+<span class="star" style="left:66%;top:14%;animation-delay:3.1s"></span>
+
+<span class="star big" style="left:71%;top:9%;animation-delay:1.1s"></span>
+<span class="star" style="left:74%;top:34%;animation-delay:2.1s"></span>
+
+<span class="star medium" style="left:79%;top:18%;animation-delay:.3s"></span>
+<span class="star" style="left:82%;top:8%;animation-delay:2.8s"></span>
+
+<span class="star big" style="left:88%;top:26%;animation-delay:1.9s"></span>
+<span class="star" style="left:91%;top:12%;animation-delay:.7s"></span>
+
+<span class="star medium" style="left:95%;top:39%;animation-delay:2.4s"></span>
+
+<span class="star" style="left:15%;top:55%;animation-delay:1.3s"></span>
+<span class="star" style="left:86%;top:56%;animation-delay:3.2s"></span>
+
+
+<div class="sparkle"
+style="
+left:11%;
+top:23%;
+animation-delay:.7s;
+"></div>
+
+<div class="sparkle"
+style="
+left:27%;
+top:14%;
+animation-delay:2.3s;
+"></div>
+
+<div class="sparkle"
+style="
+left:76%;
+top:28%;
+animation-delay:1.2s;
+"></div>
+
+<div class="sparkle"
+style="
+left:92%;
+top:17%;
+animation-delay:3.1s;
+"></div>
+
+</div>
+
+
+
+<!-- PETALOS -->
+
+<div class="floating-petal petal-1"></div>
+<div class="floating-petal petal-2"></div>
+<div class="floating-petal petal-3"></div>
+
+
+
+<!-- =====================================================
+     ESCENA
+===================================================== -->
+
+<main class="scene">
+
+<div class="bouquet-glow"></div>
+
+
+<div class="bouquet-wrapper">
+
+
+<svg
+class="bouquet-svg"
+viewBox="0 0 500 620"
+xmlns="http://www.w3.org/2000/svg"
+>
+
+
+<!-- =====================================================
+     DEFINICIONES SVG
+===================================================== -->
+
+<defs>
+
+
+<linearGradient id="yellowPetal" x1="0" y1="0" x2="0" y2="1">
+
+<stop offset="0%" stop-color="#fff9a6"/>
+
+<stop offset="35%" stop-color="#ffe765"/>
+
+<stop offset="72%" stop-color="#f7ca34"/>
+
+<stop offset="100%" stop-color="#d99d1d"/>
+
+</linearGradient>
+
+
+
+<linearGradient id="yellowDark" x1="0" y1="0" x2="1" y2="1">
+
+<stop offset="0%" stop-color="#fff28e"/>
+
+<stop offset="55%" stop-color="#f1c536"/>
+
+<stop offset="100%" stop-color="#c58a17"/>
+
+</linearGradient>
+
+
+
+<linearGradient id="stemGradient" x1="0" y1="0" x2="1" y2="0">
+
+<stop offset="0%" stop-color="#23492b"/>
+
+<stop offset="50%" stop-color="#507e46"/>
+
+<stop offset="100%" stop-color="#173825"/>
+
+</linearGradient>
+
+
+
+<linearGradient id="leafGradient" x1="0" y1="0" x2="1" y2="1">
+
+<stop offset="0%" stop-color="#668f52"/>
+
+<stop offset="52%" stop-color="#365e39"/>
+
+<stop offset="100%" stop-color="#1c402b"/>
+
+</linearGradient>
+
+
+
+<linearGradient id="kraftMain" x1="0" y1="0" x2="1" y2="1">
+
+<stop offset="0%" stop-color="#efc98f"/>
+
+<stop offset="48%" stop-color="#d9aa6e"/>
+
+<stop offset="100%" stop-color="#bd8750"/>
+
+</linearGradient>
+
+
+
+<linearGradient id="kraftLight" x1="0" y1="0" x2="1" y2="1">
+
+<stop offset="0%" stop-color="#f3d3a0"/>
+
+<stop offset="100%" stop-color="#d6a56c"/>
+
+</linearGradient>
+
+
+
+<!-- TULIPÁN -->
+
+<g id="tulip">
+
+
+<path
+d="
+M-35 25
+C-48 6 -47 -19 -34 -38
+C-20 -26 -9 -14 -2 3
+C1 -21 12 -40 29 -51
+C38 -24 36 3 23 23
+C11 40 -21 41 -35 25
+Z
+"
+fill="url(#yellowPetal)"
+/>
+
+
+<path
+d="
+M-34 24
+C-37 -5 -23 -28 -2 -40
+C8 -16 8 10 -1 35
+C-15 36 -26 32 -34 24
+Z
+"
+fill="url(#yellowDark)"
+opacity=".68"
+/>
+
+
+<path
+d="
+M-1 35
+C1 6 11 -25 29 -50
+C39 -21 33 10 21 25
+C14 33 6 36 -1 35
+Z
+"
+fill="#ffe363"
+opacity=".76"
+/>
+
+
+</g>
+
+
+
+<!-- FLORECITA BLANCA -->
+
+<g id="whiteFlower">
+
+<circle
+cx="0"
+cy="0"
+r="3.2"
+fill="#fffdf3"
+/>
+
+<circle
+cx="-4"
+cy="0"
+r="3"
+fill="#fffdf3"
+/>
+
+<circle
+cx="4"
+cy="0"
+r="3"
+fill="#fffdf3"
+/>
+
+<circle
+cx="0"
+cy="-4"
+r="3"
+fill="#fffdf3"
+/>
+
+<circle
+cx="0"
+cy="4"
+r="3"
+fill="#fffdf3"
+/>
+
+<circle
+cx="0"
+cy="0"
+r="1.8"
+fill="#f4d86e"
+/>
+
+</g>
+
+
+</defs>
+
+
+
+<!-- =====================================================
+     PAPEL TRASERO
+===================================================== -->
+
+<path
+d="
+M104 246
+C138 268 174 289 211 307
+C230 316 243 321 250 324
+C259 321 273 316 292 307
+C331 289 365 268 398 246
+C393 293 383 340 367 381
+C347 432 318 471 280 500
+C268 509 258 515 250 518
+C241 515 231 509 220 500
+C181 471 152 432 133 381
+C117 340 108 293 104 246
+Z
+"
+fill="url(#kraftMain)"
+/>
+
+
+
+<!-- =====================================================
+     TALLOS
+===================================================== -->
+
+<g
+fill="none"
+stroke="url(#stemGradient)"
+stroke-width="7"
+stroke-linecap="round"
+>
+
+<path d="M248 500 C236 395 198 271 149 145"/>
+<path d="M249 500 C246 384 224 235 213 109"/>
+<path d="M250 500 C251 370 251 211 252 71"/>
+<path d="M252 500 C267 380 294 240 307 111"/>
+<path d="M253 500 C278 396 331 267 364 151"/>
+
+<path d="M245 500 C223 411 184 320 114 214"/>
+<path d="M247 500 C232 405 206 305 178 193"/>
+<path d="M250 500 C248 399 244 283 240 179"/>
+<path d="M253 500 C267 399 288 293 316 190"/>
+<path d="M255 500 C290 412 339 324 394 218"/>
+
+<path d="M246 500 C228 424 214 355 202 247"/>
+<path d="M250 500 C248 426 250 347 255 235"/>
+<path d="M255 500 C274 422 292 346 306 246"/>
+
+</g>
+
+
+
+<!-- =====================================================
+     RAMITAS BLANCAS
+===================================================== -->
+
+<g
+fill="none"
+stroke="#79925f"
+stroke-width="2.4"
+stroke-linecap="round"
+opacity=".9"
+>
+
+<path d="M178 370 C155 312 143 258 126 211"/>
+<path d="M130 221 L109 200"/>
+<path d="M135 236 L152 211"/>
+<path d="M143 256 L117 243"/>
+
+<path d="M319 369 C342 314 359 263 379 216"/>
+<path d="M375 227 L397 204"/>
+<path d="M365 249 L343 227"/>
+<path d="M354 270 L383 251"/>
+
+<path d="M214 355 C206 310 195 275 187 238"/>
+<path d="M194 261 L176 247"/>
+<path d="M199 282 L216 264"/>
+
+</g>
+
+
+
+<!-- FLORECITAS -->
+
+<g opacity=".95">
+
+<g transform="translate(109 199) scale(.8)">
+<use href="#whiteFlower"/>
+</g>
+
+<g transform="translate(128 217) scale(.7)">
+<use href="#whiteFlower"/>
+</g>
+
+<g transform="translate(151 210) scale(.75)">
+<use href="#whiteFlower"/>
+</g>
+
+<g transform="translate(116 243) scale(.62)">
+<use href="#whiteFlower"/>
+</g>
+
+<g transform="translate(397 203) scale(.8)">
+<use href="#whiteFlower"/>
+</g>
+
+<g transform="translate(380 218) scale(.67)">
+<use href="#whiteFlower"/>
+</g>
+
+<g transform="translate(343 226) scale(.73)">
+<use href="#whiteFlower"/>
+</g>
+
+<g transform="translate(383 250) scale(.65)">
+<use href="#whiteFlower"/>
+</g>
+
+<g transform="translate(176 246) scale(.6)">
+<use href="#whiteFlower"/>
+</g>
+
+<g transform="translate(216 263) scale(.67)">
+<use href="#whiteFlower"/>
+</g>
+
+</g>
+
+
+
+<!-- =====================================================
+     HOJAS
+===================================================== -->
+
+<path
+class="leaf"
+d="
+M173 402
+C113 352 107 301 125 263
+C169 298 198 343 197 398
+C188 384 181 379 173 402
+Z
+"
+fill="url(#leafGradient)"
+/>
+
+
+<path
+class="leaf"
+d="
+M210 425
+C169 374 165 317 186 270
+C219 315 233 368 224 419
+C218 408 214 406 210 425
+Z
+"
+fill="url(#leafGradient)"
+style="animation-delay:-1.5s"
+/>
+
+
+<path
+class="leaf"
+d="
+M233 407
+C211 344 211 291 231 247
+C258 297 264 351 250 407
+C247 392 241 389 233 407
+Z
+"
+fill="url(#leafGradient)"
+style="animation-delay:-2.8s"
+/>
+
+
+<path
+class="leaf"
+d="
+M275 417
+C304 358 334 314 378 283
+C375 337 346 390 289 427
+C293 411 290 407 275 417
+Z
+"
+fill="url(#leafGradient)"
+style="animation-delay:-2.2s"
+/>
+
+
+<path
+class="leaf"
+d="
+M304 394
+C337 340 363 305 403 282
+C400 337 372 377 313 412
+C319 393 316 387 304 394
+Z
+"
+fill="url(#leafGradient)"
+style="animation-delay:-.7s"
+/>
+
+
+
+<!-- =====================================================
+     TULIPANES
+===================================================== -->
+
+<g transform="translate(149 145) rotate(-13) scale(.86)">
+<g class="flower wind-a" style="animation-delay:-1.3s">
+<use href="#tulip"/>
+</g>
+</g>
+
+
+<g transform="translate(213 109) rotate(-7) scale(.9)">
+<g class="flower wind-b" style="animation-delay:-2.2s">
+<use href="#tulip"/>
+</g>
+</g>
+
+
+<g transform="translate(252 71) rotate(1) scale(1.05)">
+<g class="flower wind-c" style="animation-delay:-.8s">
+<use href="#tulip"/>
+</g>
+</g>
+
+
+<g transform="translate(307 111) rotate(7) scale(.92)">
+<g class="flower wind-a" style="animation-delay:-2.8s">
+<use href="#tulip"/>
+</g>
+</g>
+
+
+<g transform="translate(364 151) rotate(13) scale(.86)">
+<g class="flower wind-b" style="animation-delay:-1.7s">
+<use href="#tulip"/>
+</g>
+</g>
+
+
+
+<g transform="translate(114 214) rotate(-17) scale(.87)">
+<g class="flower wind-c" style="animation-delay:-2.1s">
+<use href="#tulip"/>
+</g>
+</g>
+
+
+<g transform="translate(178 193) rotate(-9) scale(.97)">
+<g class="flower wind-a" style="animation-delay:-.5s">
+<use href="#tulip"/>
+</g>
+</g>
+
+
+<g transform="translate(240 179) rotate(-1) scale(1)">
+<g class="flower wind-b" style="animation-delay:-3.1s">
+<use href="#tulip"/>
+</g>
+</g>
+
+
+<g transform="translate(316 190) rotate(8) scale(.96)">
+<g class="flower wind-c" style="animation-delay:-1.2s">
+<use href="#tulip"/>
+</g>
+</g>
+
+
+<g transform="translate(394 218) rotate(17) scale(.85)">
+<g class="flower wind-a" style="animation-delay:-2.5s">
+<use href="#tulip"/>
+</g>
+</g>
+
+
+
+<g transform="translate(202 247) rotate(-9) scale(.96)">
+<g class="flower wind-b" style="animation-delay:-1.8s">
+<use href="#tulip"/>
+</g>
+</g>
+
+
+<g transform="translate(255 235) rotate(1) scale(1.02)">
+<g class="flower wind-c" style="animation-delay:-.4s">
+<use href="#tulip"/>
+</g>
+</g>
+
+
+<g transform="translate(306 246) rotate(10) scale(.96)">
+<g class="flower wind-a" style="animation-delay:-2.9s">
+<use href="#tulip"/>
+</g>
+</g>
+
+
+
+<!-- =====================================================
+     PAPEL DELANTERO
+===================================================== -->
+
+<path
+d="
+M105 246
+C143 277 181 303 226 326
+C234 371 238 421 241 493
+C229 488 216 478 202 466
+C178 444 158 416 142 386
+C121 346 110 297 105 246
+Z
+"
+fill="url(#kraftLight)"
+/>
+
+
+
+<path
+d="
+M398 246
+C361 277 321 303 276 326
+C269 371 264 420 260 493
+C272 488 286 478 299 466
+C323 444 343 417 359 386
+C380 346 392 297 398 246
+Z
+"
+fill="#c9955b"
+/>
+
+
+
+<path
+d="
+M226 326
+C236 331 244 334 250 335
+C258 333 267 329 276 326
+C270 372 264 420 260 493
+C257 500 254 505 250 507
+C246 505 243 501 240 493
+C238 421 233 371 226 326
+Z
+"
+fill="#e8c38b"
+/>
+
+
+
+<!-- PLIEGUES -->
+
+<path
+d="M133 274 C166 326 194 384 220 464"
+fill="none"
+stroke="#9b6d45"
+stroke-width="2"
+stroke-linecap="round"
+opacity=".22"
+/>
+
+
+<path
+d="M370 274 C336 328 308 384 280 464"
+fill="none"
+stroke="#8d5e3a"
+stroke-width="2"
+stroke-linecap="round"
+opacity=".18"
+/>
+
+
+
+<!-- =====================================================
+     PAPEL INFERIOR
+===================================================== -->
+
+<path
+d="
+M224 491
+C232 497 240 500 250 501
+C260 501 268 498 277 491
+C274 511 279 531 290 550
+C277 554 263 557 250 557
+C236 557 222 554 209 550
+C220 532 226 511 224 491
+Z
+"
+fill="#d7a86d"
+/>
+
+
+
+<path
+d="
+M236 500
+C241 503 246 505 250 505
+C255 505 259 503 264 500
+C260 519 261 536 267 551
+C256 553 245 553 235 551
+C240 533 240 517 236 500
+Z
+"
+fill="#efd09d"
+opacity=".38"
+/>
+
+
+
+<!-- =====================================================
+     LAZO
+===================================================== -->
+
+<g
+fill="none"
+stroke="#ef7168"
+stroke-width="8"
+stroke-linecap="round"
+stroke-linejoin="round"
+>
+
+<path
+d="
+M243 500
+C225 481 201 478 193 489
+C187 500 210 508 242 503
+"
+/>
+
+
+<path
+d="
+M257 500
+C275 481 299 478 307 489
+C313 500 290 508 258 503
+"
+/>
+
+
+<path
+d="
+M246 506
+C238 523 228 537 215 548
+"
+/>
+
+
+<path
+d="
+M246 506
+C242 525 239 540 238 553
+"
+/>
+
+
+<path
+d="
+M254 506
+C262 523 272 537 285 548
+"
+/>
+
+
+<path
+d="
+M254 506
+C258 525 261 540 262 553
+"
+/>
+
+</g>
+
+
+<ellipse
+cx="250"
+cy="501"
+rx="10"
+ry="8"
+fill="#ef7168"
+/>
+
+
+</svg>
+
+</div>
+
+
+
+<!-- =====================================================
+     MENSAJE
+===================================================== -->
+
+<div class="message">
+
+<span>
+🫴🌷
+</span>
+
+</div>
+
+
+</main>
+
+
+</body>
+</html>
